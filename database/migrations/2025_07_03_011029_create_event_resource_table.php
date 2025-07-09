@@ -13,7 +13,14 @@ return new class extends Migration
     {
         Schema::create('event_resource', function (Blueprint $table) {
             $table->id();
+            $table->id('resource_id');
+            $table->unsignedBigInteger('event_id');
+            $table->string('name');
+            $table->string('type');
+            $table->integer('quantity');
             $table->timestamps();
+
+        $table->foreign('event_id')->references('event_id')->on('events')->onDelete('cascade');
         });
     }
 

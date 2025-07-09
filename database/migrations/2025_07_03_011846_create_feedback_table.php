@@ -13,7 +13,14 @@ return new class extends Migration
     {
         Schema::create('feedback', function (Blueprint $table) {
             $table->id();
+            $table->id('feedback_id');
+            $table->unsignedBigInteger('event_id');
+            $table->text('comment')->nullable();
+            $table->integer('rating')->nullable();
+            $table->dateTime('date');
             $table->timestamps();
+
+        $table->foreign('event_id')->references('event_id')->on('events')->onDelete('cascade');
         });
     }
 

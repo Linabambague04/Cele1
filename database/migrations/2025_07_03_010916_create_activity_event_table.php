@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('activity_event', function (Blueprint $table) {
             $table->id();
+            $table->id('activity_id');
+            $table->unsignedBigInteger('event_id');
+            $table->string('activity_type');
+            $table->string('status');
+            $table->dateTime('timestamp');
+            $table->timestamps();
+
+        $table->foreign('event_id')->references('event_id')->on('events')->onDelete('cascade');
             $table->timestamps();
         });
     }
