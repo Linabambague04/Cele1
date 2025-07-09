@@ -2,47 +2,69 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Builder;
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
 
-class User extends Authenticatable
+class User extends Model
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    use HasFactory;
+    protected $table = 'users';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var list<string>
-     */
     protected $fillable = [
         'name',
         'email',
         'password',
+        'registration_date',
+        'status',
+    ];
+    protected static $allowIncluded = [
+        'userServices',
+        'eventServices',
+        'supports',
+    ];
+    protected static $allowFilter = [
+        'id',
+        'name',
+        'email',
+        'registration_date',
+        'status',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var list<string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
-
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
+    // Scope para incluir relaciones dinámicamente
+    public function scopeIncluded(Builder $query)
     {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+        if (empty(request('included'))) {
+            return $query;
+        }
+
+        $relations = explode(',', request('included'));
+        $allowed = collect(self::$allowIncluded);
+
+        $validRelations = array_filter($relations, fn($rel) => $allowed->contains($rel));
+        return $query->with($validRelations);
+    }
+
+    // Scope para aplicar filtros por campos permitidos
+    public function scopeFilter(Builder $query)
+    {
+        if (empty(request('filter'))) {
+            return $query;
+        }
+
+        $filters = request('filter');
+        $allowed = collect(self::$allowFilter);
+
+        foreach ($filters as $field => $value) {
+            if ($allowed->contains($field)) {
+                $query->where($field, 'LIKE', "%$value%");
+            }
+        }
+
+        return $query;
     }
 }

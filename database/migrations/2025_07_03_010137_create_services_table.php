@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
+<<<<<<< Updated upstream
+=======
+            $table->string('nombre');
+            $table->text('descripcion');
+>>>>>>> Stashed changes
             $table->timestamps();
         });
     }
