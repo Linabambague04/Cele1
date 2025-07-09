@@ -12,9 +12,6 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('events', function (Blueprint $table) {
-<<<<<<< Updated upstream
-            $table->id();
-=======
             $table->id();            
             $table->string('title');
             $table->text('description');
@@ -24,7 +21,6 @@ return new class extends Migration
             $table->string('status');
             $table->unsignedBigInteger('id_organizador');
             $table->foreign('id_organizador')->references('user_id')->on('users')->onDelete('cascade')->onUpdate('cascade');
->>>>>>> Stashed changes
             $table->timestamps();
         });
     }
