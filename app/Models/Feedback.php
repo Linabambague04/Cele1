@@ -7,4 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Feedback extends Model
 {
     //
+    public function events(){
+        return $this->hasMany(Event::class);
+    }
+    public function user(){
+        return $this->belongsTo(User::class); 
+    }
 }
