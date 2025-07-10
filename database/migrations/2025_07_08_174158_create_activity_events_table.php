@@ -17,10 +17,13 @@ return new class extends Migration
             $table->string('activity_type', 50);
             $table->string('status', 20);
             $table->unsignedBigInteger('event_id');
-            $table->foreignId('event_id')
-                ->constrained('events')
+
+            $table->foreign('event_id')
+                ->references('id')
+                ->on('events') 
                 ->onDelete('cascade')
-                ->comment('Referencia al evento relacionado');
+                ->onUpdate('cascade');
+
             $table->timestamps();
         });
     }

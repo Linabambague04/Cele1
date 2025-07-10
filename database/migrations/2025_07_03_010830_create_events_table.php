@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('location');
             $table->string('status');
             $table->unsignedBigInteger('id_organizador');
-            $table->foreign('id_organizador')->references('user_id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('id_organizador')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

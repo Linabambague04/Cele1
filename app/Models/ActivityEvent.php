@@ -35,7 +35,6 @@ class ActivityEvent extends Model
         'updated_at'
     ];
 
-
     public function scopeIncluded(Builder $query)
     {
         if (empty(request('included'))) {
