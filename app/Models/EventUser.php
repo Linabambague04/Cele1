@@ -18,7 +18,7 @@ class EventUser extends Model
     ];
 
     protected static $allowIncluded = [
-        'event',
+        'events',
         'user'
     ];
 
@@ -30,6 +30,13 @@ class EventUser extends Model
         'updated_at'
     ];
 
+
+    public function events(){
+        return $this->belongsToMany(Event::class);
+    }
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
    
     // Scope para cargar relaciones
     public function scopeIncluded(Builder $query): Builder

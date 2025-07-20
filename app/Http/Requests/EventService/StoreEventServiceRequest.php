@@ -11,7 +11,7 @@ class StoreEventServiceRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,10 @@ class StoreEventServiceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'status' => 'required|string|max:50',
+            'event_id' => 'required|exists:events,id',
+            'service_id' => 'required|exists:services,id',
+            'user_id' => 'required|exists:users,id',
         ];
     }
 }

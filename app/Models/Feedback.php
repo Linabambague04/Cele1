@@ -20,7 +20,7 @@ class Feedback extends Model
     ];
 
     protected static $allowIncluded = [
-        'event',
+        'events',
         'user'
     ];
 

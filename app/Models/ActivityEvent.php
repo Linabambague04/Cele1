@@ -21,7 +21,6 @@ class ActivityEvent extends Model
 
     protected static $allowIncluded = [
         'event',
-        'activity'
     ];
 
     protected static $allowFilter = [
@@ -34,6 +33,10 @@ class ActivityEvent extends Model
         'created_at',
         'updated_at'
     ];
+
+      public function event(){
+        return $this->belongsTo(Event::class);
+    }
 
     public function scopeIncluded(Builder $query)
     {

@@ -4,14 +4,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 class Role extends Model
 {
-<<<<<<< Updated upstream
-    use HasFactory;
-=======
-    
-    use HasFactory;
 
     protected $table = 'roles';
 
@@ -63,5 +58,4 @@ class Role extends Model
 
         return $query;
     }
->>>>>>> Stashed changes
 }

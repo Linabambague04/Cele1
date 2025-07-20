@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-interface EventServiceService
+interface PaymentService
 {
     public function all();
     public function show($id);

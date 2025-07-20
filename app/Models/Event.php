@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Models;
+
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 class Event extends Model
 {
-     use HasFactory;
+    use HasFactory;
 
     protected $table = 'events';
 
@@ -21,7 +23,14 @@ class Event extends Model
     ];
 
     protected static $allowIncluded = [
-        'organizer'
+        'services',
+        'activityEvents',
+        'payment',
+        'payment',
+        'eventuser',
+        'user',
+        'securityevent',
+        'feedback',
     ];
 
     protected static $allowFilter = [
@@ -36,7 +45,34 @@ class Event extends Model
         'updated_at'
     ];
 
-   
+    public function activityEvents()
+    {
+        return $this->hasMany(ActivityEvent::class);
+    }
+    public function services()
+    {
+        return $this->belongsToMany(Service::class);
+    }
+    public function payment()
+    {
+        return $this->belongsTo(Payment::class);
+    }
+    public function eventuser()
+    {
+        return $this->belongsTo(EventUser::class);
+    }
+    public function user()
+    {
+        return $this->belongsToMany(User::class);
+    }
+    public function securityevent()
+    {
+        return $this->belongsTo(SecurityEvent::class);
+    }
+    public function feedback()
+    {
+        return $this->belongsTo(Feedback::class);
+    }
 
     // Scope para cargar relaciones
     public function scopeIncluded(Builder $query)

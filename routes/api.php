@@ -12,7 +12,6 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::prefix('v1')->group(function () {
+
     Route::get('events', [EventController::class, 'index']);
     Route::get('activityEvent', [ActivityEventController::class, 'index']);
-});

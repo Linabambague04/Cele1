@@ -8,14 +8,20 @@ use App\Services\EventService;
 class EventServiceImpl implements EventService
 {
     public function all(){
-        return Event:: include()->filter()->get();
+        return Event::included()->filter()->get();
     }
 
     public function show($id){
-        return Event::with(['activityEvents',
-        'securityEvent',
-        'payments',
-        'feedback'])->find($id);
+        return Event::with([
+        'services',
+        'activityEvents',
+        'payment',
+        'payment',
+        'eventuser',
+        'user',
+        'securityevent',
+        'feedback',
+        ])->findOrFail($id);
     }
 
     public function create(array $data){
