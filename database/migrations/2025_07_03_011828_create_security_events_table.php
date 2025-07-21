@@ -13,7 +13,12 @@ return new class extends Migration
     {
         Schema::create('security_event', function (Blueprint $table) {
             $table->id();
+            $table->string('access_code', 50);
+            $table->text('incident'); // por si no hay incidente reportado
+            $table->dateTime('date');
             $table->timestamps();
+            $table->unsignedBigInteger('event_id');
+            $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
