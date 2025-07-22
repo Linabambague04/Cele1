@@ -10,7 +10,7 @@ class EventUser extends Model
     
     use HasFactory;
 
-    protected $table = 'event_user';
+    protected $table = 'event_user';// t
 
     protected $fillable = [
         'event_id',
