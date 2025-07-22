@@ -37,7 +37,7 @@ class User extends Model
 
     public function events()
     {
-        return $this->hasMany(Event::class);
+        return $this->belongsToMany(Event::class);
     }
     public function feedbacks()
     {
@@ -46,10 +46,6 @@ class User extends Model
     public function payments()
     {
         return $this->hasMany(Payment::class);
-    }
-    public function eventusers()
-    {
-        return $this->hasMany(EventUser::class);
     }
     public function notifications()
     {
@@ -71,10 +67,11 @@ class User extends Model
     {
         return $this->hasMany(ServiceUser::class);
     }
-    public function userroles()
+    public function roles()
     {
-        return $this->hasMany(UserRole::class);
+        return $this->belongsToMany(Role::class, 'user_role');
     }
+
 
     // Scope para incluir relaciones dinámicamente
     public function scopeIncluded(Builder $query)

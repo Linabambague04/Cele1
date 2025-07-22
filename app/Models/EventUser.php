@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 class EventUser extends Model
-{
+{/*
     
     use HasFactory;
 
@@ -30,12 +30,6 @@ class EventUser extends Model
         'updated_at'
     ];
 
-    public function events(){
-        return $this->hasMany(Event::class);
-    }
-    public function user(){
-        return $this->belongsTo(User::class);
-    }
     // Scope para cargar relaciones
     public function scopeIncluded(Builder $query): Builder
     {
@@ -68,4 +62,5 @@ class EventUser extends Model
 
         return $query;
     }
+    */
 }

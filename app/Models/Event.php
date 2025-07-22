@@ -27,7 +27,7 @@ class Event extends Model
         'services',          
         'payment',            
         'eventuser',         
-        'user',              
+        'users',              
         'securityevent',      
         'feedback',
     ];
@@ -56,11 +56,7 @@ class Event extends Model
     {
         return $this->belongsTo(Payment::class);
     }
-    public function eventuser()
-    {
-        return $this->belongsTo(EventUser::class);
-    }
-    public function user()
+    public function users()
     {
         return $this->belongsToMany(User::class);
     }
