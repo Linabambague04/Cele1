@@ -4,7 +4,7 @@ namespace App\Services\impl;
 use App\Services\RoleService;
 use App\Models\Role;
 
-class RoleServiceimpl implements RoleService
+class RoleServiceImpl implements RoleService
 {
     
     public function all()

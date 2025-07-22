@@ -5,7 +5,7 @@ namespace App\Services\impl;
 use App\Models\SecurityEvent;
 use App\Services\SecurityEventsService;
 
-class SecurityEventsServiceimpl implements SecurityEventsService
+class SecurityEventsServiceImpl implements SecurityEventsService
 {
     public function all(){
         return SecurityEvent::included()->filter()->get();

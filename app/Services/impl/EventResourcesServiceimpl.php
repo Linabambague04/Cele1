@@ -3,8 +3,9 @@
 namespace App\Services\impl;
 
 use App\Models\ResourceEvent;
+use App\Services\EventResourcesService;
 
-class EventResourcesServiceimpl
+class EventResourcesServiceImpl implements EventResourcesService
 {
      public function all()
     {

@@ -23,13 +23,12 @@ class Event extends Model
     ];
 
     protected static $allowIncluded = [
-        'services',
-        'activityEvents',
-        'payment',
-        'payment',
-        'eventuser',
-        'user',
-        'securityevent',
+        'activityEvents',     
+        'services',          
+        'payment',            
+        'eventuser',         
+        'user',              
+        'securityevent',      
         'feedback',
     ];
 

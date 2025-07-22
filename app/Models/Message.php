@@ -34,6 +34,9 @@ class Message extends Model
         'updated_at'
     ];
 
+     public function user(){
+        return $this->belongsTo(User::class);
+    }
 
     // Scope para cargar relaciones
     public function scopeIncluded(Builder $query): Builder

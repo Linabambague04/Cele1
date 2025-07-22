@@ -1,17 +1,17 @@
 <?php
 
 namespace Database\Seeders;
-
+use App\Models\Message;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Role;
-class RolesSeeder extends Seeder
+
+class MessageSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Role::factory()->count(10)->create();
+        Message::factory()->count(10)->create();
     }
 }

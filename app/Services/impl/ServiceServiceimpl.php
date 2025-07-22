@@ -5,7 +5,7 @@ namespace App\Services\impl;
 use App\Models\Service;
 use App\Services\ServiceService;
 
-class ServiceServiceimpl implements ServiceService
+class ServiceServiceImpl implements ServiceService
 {
     public function all()
     {

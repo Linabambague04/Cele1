@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class ActivityEvent extends Model
 {
     use HasFactory;
-    protected $table = 'activity_event';
+    protected $table = 'activity_events';
 
     protected $fillable = [
         'activity_id',

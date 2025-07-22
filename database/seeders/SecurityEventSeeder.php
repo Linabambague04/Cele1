@@ -1,17 +1,17 @@
 <?php
 
 namespace Database\Seeders;
-
+use App\Models\SecurityEvent;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Role;
-class RolesSeeder extends Seeder
+
+class SecurityEventSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Role::factory()->count(10)->create();
+        SecurityEvent::factory()->count(10)->create();
     }
 }

@@ -5,7 +5,7 @@ namespace App\Services\impl;
 use App\Models\Feedback;
 use App\Services\FeedbackService;
 
-class FeedbackServiceimpl implements FeedbackService
+class FeedbackServiceImpl implements FeedbackService
 {
     public function all()
     {

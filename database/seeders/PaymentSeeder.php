@@ -1,17 +1,17 @@
 <?php
 
 namespace Database\Seeders;
-
+use App\Models\Payment;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Role;
-class RolesSeeder extends Seeder
+
+class PaymentSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Role::factory()->count(10)->create();
+        Payment::factory()->count(10)->create();
     }
 }

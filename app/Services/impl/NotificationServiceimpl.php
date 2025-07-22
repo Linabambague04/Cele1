@@ -5,7 +5,7 @@ namespace App\Services\impl;
 use App\Models\Notification;
 use App\Services\NotificationService;
 
-class NotificationServiceimpl implements NotificationService
+class NotificationServiceImpl implements NotificationService
 {
     public function all(){
         return Notification::included()->filter()->get();

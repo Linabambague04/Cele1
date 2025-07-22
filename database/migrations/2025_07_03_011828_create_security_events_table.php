@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('security_event', function (Blueprint $table) {
+        Schema::create('security_events', function (Blueprint $table) {
             $table->id();
             $table->string('access_code', 50);
             $table->text('incident'); // por si no hay incidente reportado
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('security_event');
+        Schema::dropIfExists('security_events');
     }
 };

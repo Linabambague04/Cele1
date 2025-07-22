@@ -10,7 +10,7 @@ class SecurityEventController extends Controller
 {
     protected $securityEventsService;
 
-    public function __construc(SecurityEventsService $securityEventsService){
+    public function __construct(SecurityEventsService $securityEventsService){
             $this->securityEventsService = $securityEventsService;
     }
 
@@ -42,5 +42,15 @@ class SecurityEventController extends Controller
         }
 
         return response()->json((['message' =>'Eliminado correctamente']));
+    }
+
+    public function destroy($id){
+        $securityEvent = $this ->securityEventsService->delete($id);
+
+        if(!$securityEvent){
+            return response()->json(['message' => 'No encontrado'], 404);
+        }
+
+        return response()->json(['message'=> 'eliminado correctamente']);
     }
 }

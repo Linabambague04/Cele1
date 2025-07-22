@@ -5,7 +5,7 @@ namespace App\Services\impl;
 use App\Models\Payment;
 use App\Services\PaymentService;
 
-class PaymentServiceimpl implements PaymentService
+class PaymentServiceImpl implements PaymentService
 {
     public function all(){
         return Payment::included()->filter()->get();        

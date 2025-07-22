@@ -37,6 +37,13 @@ class Payment extends Model
         'updated_at'
     ];
 
+    public function events(){
+        return $this->belongsTo(Event::class);//tenia hasMany
+    }
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
     // Scope para cargar relaciones
     public function scopeIncluded(Builder $query): Builder
     {

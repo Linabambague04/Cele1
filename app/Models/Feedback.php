@@ -35,6 +35,12 @@ class Feedback extends Model
         'updated_at'
     ];
 
+    public function events(){
+        return $this->hasMany(Event::class);
+    }
+    public function user(){
+        return $this->belongsTo(User::class); 
+    }
     
     // Scope para cargar relaciones
     public function scopeIncluded(Builder $query): Builder

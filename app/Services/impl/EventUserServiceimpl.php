@@ -5,7 +5,7 @@ namespace App\Services\impl;
 use App\Models\EventUser;
 use App\Services\EventUserService;
 
-class EventUserServiceimpl implements EventUserService
+class EventUserServiceImpl implements EventUserService
 {
     public function all()
     {

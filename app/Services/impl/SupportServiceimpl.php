@@ -3,8 +3,9 @@
 namespace App\Services\impl;
 
 use App\Models\Support;
+use App\Services\SupportService;
 
-class SupportServiceimpl
+class SupportServiceImpl implements SupportService
 { 
     public function all()
     {

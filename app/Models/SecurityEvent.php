@@ -9,7 +9,7 @@ class SecurityEvent extends Model
 {
       use HasFactory;
 
-    protected $table = 'security_event';
+    protected $table = 'security_events';
 
     protected $fillable = [
         'event_id',
@@ -19,7 +19,7 @@ class SecurityEvent extends Model
     ];
 
     protected static $allowIncluded = [
-        'event',
+        'events',
     ];
 
     protected static $allowFilter = [
@@ -29,6 +29,10 @@ class SecurityEvent extends Model
         'incident',
         'date',
     ];
+
+    public function events(){
+        return $this->hasMany(Event::class);
+    }
 
 
     public function scopeIncluded(Builder $query)

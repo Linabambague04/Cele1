@@ -5,7 +5,7 @@ namespace App\Services\impl;
 use App\Services\MessagesService;
 use App\Models\Message;
 
-class MessagesServiceimpl implements MessagesService
+class MessagesServiceImpl implements MessagesService
 {
     public function all()
     {
