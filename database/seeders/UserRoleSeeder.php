@@ -14,16 +14,18 @@ class UserRoleSeeder extends Seeder
      */
     public function run(): void
     {
-         $users = User::all();
+        $users = User::all();
         $roles = Role::all();
 
         if ($users->isEmpty() || $roles->isEmpty()) return;
 
-        foreach ($users as $user) {
-            $roleCount = $roles->count();
-            $amount = min(rand(1, 2), $roleCount);
-            $randomRoles = $roles->random($amount)->pluck('id')->toArray();
-            $user->roles()->attach($randomRoles);
+        // Generar 10 asignaciones únicas de usuario ↔ rol
+        for ($i = 0; $i < 10; $i++) {
+            $user = $users->random();
+            $role = $roles->random();
+
+            // Evita duplicados
+            $user->roles()->syncWithoutDetaching([$role->id]);
         }
     }
 }

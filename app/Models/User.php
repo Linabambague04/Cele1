@@ -63,9 +63,9 @@ class User extends Model
     {
         return $this->hasMany(Message::class);
     }
-    public function serviceusers()
+    public function services()
     {
-        return $this->hasMany(ServiceUser::class);
+        return $this->belongsToMany(Service::class);
     }
     public function roles()
     {

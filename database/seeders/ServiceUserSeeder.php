@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Service;
+
 class ServiceUserSeeder extends Seeder
 {
     /**
@@ -18,11 +19,13 @@ class ServiceUserSeeder extends Seeder
 
         if ($users->isEmpty() || $services->isEmpty()) return;
 
-        foreach ($users as $user) {
-            $serviceCount = $services->count();
-            $amount = min(rand(1, 3), $serviceCount);
-            $randomServices = $services->random($amount)->pluck('id')->toArray();
-            $user->services()->attach($randomServices);
+        // Generar entre 10 y 20 registros aleatorios
+        $total = rand(10,20);
+
+        for ($i = 0; $i < $total; $i++) {
+            $randomUser = $users->random();
+            $randomService = $services->random();
+            $randomUser->services()->attach($randomService->id);
         }
     }
 }

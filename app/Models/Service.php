@@ -30,6 +30,10 @@ class Service extends Model
     public function events(){
         return $this->belongsToMany(Event::class);
     }
+    
+    public function users(){
+        return $this->belongsToMany(User::class);
+    }
 
     public function scopeIncluded(Builder $query)
     {
